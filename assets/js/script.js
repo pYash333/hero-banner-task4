@@ -1,12 +1,16 @@
 $(function () {
-  $(window).on("scroll", function () {
-    if ($(window).scrollTop() > 50) {
-      $(".header").addClass("active");
+  function updateScroll() {
+    if ($(window).scrollTop() >= 80) {
+        $(".header").addClass('active');
     } else {
-      //remove the background property so it comes transparent again (defined in your css)
-      $(".header").removeClass("active");
+        $(".header").removeClass("active");
     }
-  });
+}
+
+$(function() {
+    $(window).scroll(updateScroll);
+    updateScroll();
+});
 
   $(".header .header-desktop .menu-btn").on("click", function(){
 
